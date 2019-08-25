@@ -6,7 +6,8 @@ class App extends React.Component {
     super();
     this.state = {
         name: "Abolfazl Sabagh",
-        biography: "PHP & React Developer"
+        biography: "PHP & React Developer",
+        age: 26,
     }
   }
   changeProps = () => {
@@ -22,7 +23,8 @@ class App extends React.Component {
       <div className="app-wrapper">
         <User 
           fullname={this.state.name} 
-          biography={this.state.biography}
+          biography={this.state.biography} 
+          age={this.state.age}
         />
         <button onClick={this.changeProps}>Click Event</button>
       </div>
