@@ -9,7 +9,9 @@ class App extends React.Component {
         {id:1,name:"Abolfazl",age: 26},
         {id:2,name:"Reza",age:32},
         {id:3,name:"Alireza",age:40}
-      ]
+      ],
+      searchValue: "",
+      searchUsers: [],
     }
   }
   removeUser = (id) => {
@@ -18,8 +20,9 @@ class App extends React.Component {
   }
 
   showUsers = () => {
-    return (
-      this.state.users.map((user,index) => 
+      let users = (this.state.searchValue.length)? this.state.searchUsers : this.state.users;
+      return (
+      users.map((user,index) => 
         <li key={index}>
           <User id={user.id} name={user.name} age={user.age} removeFunc={this.removeUser} />
         </li>
@@ -42,12 +45,25 @@ class App extends React.Component {
     }
     newState.users.push(newUser);
     this.setState(newState);
-    
+  }
+
+  searchUsers = (e) => {
+    let newState = {...this.state};
+    let searchValue = e.target.value;
+    let regexp = new RegExp(searchValue);
+    let users = this.state.users.filter(user => {
+      return user.name.match(regexp);
+    });
+    newState.searchUsers = users;
+    newState.searchValue = searchValue;
+    console.log(newState.users,newState.searchUsers);
+    this.setState(newState);
   }
 
   render() {
     return (
       <div>
+        <input type="text" name="search" onChange={this.searchUsers} placeholder="Search..." />
         <ul>{this.showUsers()}</ul>
         <button onClick={this.addUser} >add user</button>
       </div>
