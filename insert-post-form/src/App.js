@@ -18,7 +18,8 @@ class App extends React.Component {
   postInsert = (post) => {
     this.setState((oldState,props)=>{
       let newState = {...oldState}
-      newState.posts = [...oldState.posts,post];
+      let id = oldState.posts.length;
+      newState.posts = [...oldState.posts,{id:id,...post}];
       return newState;
     });
     
