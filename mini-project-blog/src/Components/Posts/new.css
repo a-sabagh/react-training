@@ -1,0 +1,24 @@
+.form-group input[type="submit"] {
+     background: #578bff;
+     color: white;
+     border: none;
+     text-align: center;
+     padding: 1em;
+     font-size: .9em;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+ 
+ .form-group input[type="text"], .form-group textarea {
+     width: 100%;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     font-size: 1em;
+     padding: .7em;
+ }
+ .form-group textarea {
+     min-height: 8em;
+ }
+ .form-group {
+     margin: .5em 0;
+ }

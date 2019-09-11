@@ -1,0 +1,15 @@
+nav ul li a {
+     color: white;
+     text-decoration: none;
+     padding: .5em;
+     display: block;
+ }
+ nav ul li {
+     display: inline-block;
+     color: white;
+     margin: .5em;
+ }
+ nav {
+     background: black;
+     color: white;
+ }
